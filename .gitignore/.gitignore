@@ -1,0 +1,64 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Globalization;
+using System.Numerics;
+namespace ConsoleApplication6
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            
+            Console.OutputEncoding = Encoding.UTF8; // Dùng để gõ tiếng việt
+            BigInteger n;
+            bool checkParse;
+            String StrN="c";
+            String  Continued="y";
+            while (Continued == "y" || Continued == "Y")
+            {
+                n = -1;
+                checkParse = false;
+                while (checkParse == false || n < 1 || n != (int)n)
+                    
+                    
+                {
+                    Console.Write
+                        ("Nhập số n: ");
+                    StrN = Console.ReadLine();
+                    checkParse = BigInteger.TryParse(StrN, out n);
+                    if (checkParse==false||n != (int)n)
+                    {
+                        Console.WriteLine("Nhập số tự nhiên!!");
+                    }
+                    if (checkParse==true && n < 1)
+                    {
+                        Console.WriteLine("Nhập số nguyên dương");
+                    }
+                }
+                BigInteger giai_thua = 1;
+                for (int i = 1; i <= n;i++ )
+                {
+                    giai_thua = giai_thua * i;
+                }
+                Console.WriteLine("Giá trị của {0}! là: {1}", n, giai_thua);
+           
+                Console.WriteLine("Bạn muốn tiếp tục chương trình không? Y/N");
+                Continued = Console.ReadLine();
+                if (Continued == "y" || Continued == "Y")
+                {
+                    Console.Clear();
+                }
+                if (Continued == "N" || Continued == "n" )
+                {
+                    Environment.Exit(0);
+                }
+               
+            }
+
+            Console.ReadLine();
+        }
+    }
+}
